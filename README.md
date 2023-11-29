@@ -4,7 +4,7 @@ Graffiti-me é uma plataforma inovadora que proporciona aos artistas grafiteiros
 
 ## Índice
 
-1. [Diagrama UML de Classes da Aplicação](#diagrama-uml-de-classes-da-aplicacao)
+1. [Diagrama UML de Classes da Aplicação](#diagrama-uml)
 2. [Documentação Técnica](#documentacao-tecnica)
 3. [Apresentação do Projeto](#apresentacao-do-projeto)
     - [Slides da Apresentação](#slides-da-apresentacao)
@@ -15,19 +15,19 @@ Graffiti-me é uma plataforma inovadora que proporciona aos artistas grafiteiros
 
 ---
 
-## Diagrama UML de Classes da Aplicação
+## <a name="diagrama-uml"> Diagrama UML de Classes da Aplicação </a>
 
 (Insira aqui o seu diagrama UML de classes, se aplicável)
 
-## Documentação Técnica
+## <a name="documentacao-tecnica"> Documentação Técnica </a>
 
 (Forneça aqui informações técnicas relevantes para o entendimento e desenvolvimento do projeto.)
 
-## Apresentação do Projeto
+## <a name="apresentacao-do-projeto"> Apresentação do Projeto </a>
 
-### Slides da Apresentação
+### Slides da Apresentação {#slides-da-apresentacao}
 
-[Slides da apresentação](www.google.com)
+<a name="slides-da-apresentacao"> [Slides da apresentação](www.google.com) </a>
 
 ## Desenvolvedoras do Projeto
 
@@ -36,13 +36,13 @@ Graffiti-me é uma plataforma inovadora que proporciona aos artistas grafiteiros
 
 ## Como Rodar o Projeto
 
-### Pré-requisitos
+### Pré-requisitos {#pre-requisitos}
 
 - JavaScript
 - Node.js
 - Jest
 
-### Instalação
+### Instalação {#instalacao}
 
 (Forneça instruções passo a passo sobre como instalar as dependências e configurar o ambiente de desenvolvimento.)
 
