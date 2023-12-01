@@ -1,0 +1,16 @@
+{
+  "name": "graffiti-me",
+  "version": "1.0.0",
+  "description": "# Sobre o projeto",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Talita e Ana Beatriz",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
