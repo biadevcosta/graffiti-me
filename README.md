@@ -7,7 +7,8 @@ Graffiti-me é uma plataforma inovadora que proporciona aos artistas grafiteiros
 
 ## Diagrama UML de Classes
 
-(Insira aqui o seu diagrama UML de classes, se aplicável)
+![image](https://github.com/biadevcosta/graffiti-me/assets/97992738/9840f802-54e2-48f0-8b01-86ed652328c1)
+
 
 
 ## Documentação Técnica 
