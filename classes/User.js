@@ -7,25 +7,19 @@ export class User {
     #dateOfBirth;
     #CPF;
     #description;
-    #graffitiStyle;
     #address;
+    #posts;
+    static allUsers = [];
 
-    static users = [];
-    static userPosts = [];
-
-
-    constructor(id, name, profile, email, password, dateOfBirth, CPF, postalCode, complement) {
+    constructor(id, name, profile, email, password, dateOfBirth, CPF, description, postalCode) {
         validateCPF(CPF);
         validateEmail(email);
         validateStrongPassword(password);
+        this.#posts = [];
     }
 
     get id() {
         return this.#id;
-    }
-    
-    set id(newId) {
-        this.#id = newId;
     }
     
     get name() {
@@ -84,13 +78,5 @@ export class User {
 
     set description(newDescription) {
         this.#description = newDescription;
-    }
-
-    get graffitiStyle() {
-        return this.#graffitiStyle;
-    }
-
-    set graffitiStyle(newGraffitiStyle) {
-        this.#graffitiStyle = newGraffitiStyle;
-    }    
+    } 
 }
