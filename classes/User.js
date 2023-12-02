@@ -1,3 +1,4 @@
+import { Address } from './Address.js';
 export class User {
     #id;
     #name;
@@ -9,13 +10,16 @@ export class User {
     #description;
     #address;
     #posts;
+    static allPosts = [];
     static allUsers = [];
 
     constructor(id, name, profile, email, password, dateOfBirth, CPF, description, postalCode) {
         validateCPF(CPF);
         validateEmail(email);
         validateStrongPassword(password);
+        this.#address = new Address(postalCode);
         this.#posts = [];
+        User.allUsers.push({ id, name, profile, email, password, dateOfBirth, CPF, descriptions });
     }
 
     get id() {
@@ -79,4 +83,20 @@ export class User {
     set description(newDescription) {
         this.#description = newDescription;
     } 
+
+    get address() {
+        this.#address;
+    }
+
+    set address(postalCode) {
+        this.#address = new Address(postalCode);
+    }
+
+    get posts() {
+        this.#posts;
+    }
+
+    set posts(newPost) {
+        this.#posts = newPost;
+    }
 }
