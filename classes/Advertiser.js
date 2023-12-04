@@ -1,9 +1,11 @@
-import { User } from './User.js';
+const User = require ('./User.js');
 
-export class Advertiser {
+class Advertiser extends User {
     static allAdvertisers = [];
 
     getAllAdvertisers() {
         this.advertisers;
     }
 }
+
+module.exports = Advertiser;

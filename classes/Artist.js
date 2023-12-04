@@ -1,8 +1,10 @@
-import { User } from './User.js';
+const User = require ('./User.js')
 
-export class Artist {
+export class Artist extends User {
     #graffitiStyle;
     static allArtists = [];
+
+    constructor(){}
 
     getAllArtists() {
         this.artists;
@@ -16,3 +18,5 @@ export class Artist {
         this.#graffitiStyle = newGraffitiStyle;
     }
 }
+
+module.exports = Artist

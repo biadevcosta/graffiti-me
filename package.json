@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "# Sobre o projeto",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "Talita e Ana Beatriz",
   "license": "ISC",
   "dependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "uuid": "^9.0.1"
   }
 }

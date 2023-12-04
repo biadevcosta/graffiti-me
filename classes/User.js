@@ -1,5 +1,7 @@
-import { Address } from './Address.js';
-export class User {
+const Address = require ('./Address.js')
+const uuid = require('uuid');
+
+class User {
     #id;
     #name;
     #profile;
@@ -13,13 +15,14 @@ export class User {
     static allPosts = [];
     static allUsers = [];
 
-    constructor(id, name, profile, email, password, dateOfBirth, CPF, description, postalCode) {
-        validateCPF(CPF);
-        validateEmail(email);
-        validateStrongPassword(password);
+    constructor(name, profile, email, password, dateOfBirth, CPF, description, postalCode) {
+        this.validateCPF(CPF);
+        this.validateEmail(email);
+        this.validateStrongPassword(password);
+        this.#id = uuid.v4();
         this.#address = new Address(postalCode);
         this.#posts = [];
-        User.allUsers.push({ id, name, profile, email, password, dateOfBirth, CPF, descriptions });
+        User.allUsers.push({ id: this.#id, name, profile, email, password, dateOfBirth, CPF, description });
     }
 
     get id() {
@@ -43,7 +46,7 @@ export class User {
     }
     
     set email(newEmail) {
-        if(validateEmail(newEmail)) {
+        if(this.validateEmail(newEmail)) {
             this.#email = newEmail;
         }
     }
@@ -53,7 +56,7 @@ export class User {
     }
     
     set password(newPassword) {
-        if(validateStrongPassword(newPassword)) {
+        if(this.validateStrongPassword(newPassword)) {
             this.#password = newPassword;
         }
     }
@@ -71,7 +74,7 @@ export class User {
     }
 
     set CPF(newCPF) {
-        if(validateCPF(newCPF)){
+        if(this.validateCPF(newCPF)){
             this.#CPF = newCPF;
         }
     }
@@ -99,4 +102,35 @@ export class User {
     set posts(newPost) {
         this.#posts = newPost;
     }
+
+    validateCPF(cpf){
+        const regexCPF = /^\d{11}$/;
+        const cpfWithoutPunctuation = cpf.replace(/[.-]/g, '');
+        if(!regexCPF.test(cpfWithoutPunctuation)) {
+            throw new Error('Invalid CPF');
+        }
+
+        return true;
+    }
+
+
+    validateEmail(email){
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!regexEmail.test(email)) {
+            throw new Error('Invalid email');
+        }
+    
+        return true;
+    }
+
+    validateStrongPassword(password){
+        const regexStrongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if(!regexStrongPassword.test(password)) {
+            throw new Error('The password must contain at least 8 characters, including at least one lowercase letter, one uppercase letter, one number, and one special character (@$!%*?&).');
+        }
+        
+        return true;
+    }
 }
+
+module.exports = User

@@ -1,3 +1,5 @@
-export class Address {
+class Address {
     
 }
+
+module.exports = Address
