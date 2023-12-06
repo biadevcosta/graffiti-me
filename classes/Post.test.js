@@ -36,7 +36,15 @@ describe('Should validate methodes of the Post class', () => {
 
     it('Should set postImage', () => {
         postUser1.postImage = 'image.png';
-        expect(postUser1.postDate).toEqual('image.png'); 
+        expect(postUser1.postImage).toEqual('image.png'); 
     })
 
-})
+    it('Should not create post, because user is invalid', () => {
+        expect(() => {
+            new Post('invalid user', 'Arte graffiti', 'Fiz essa arte em um evento de graffiti', '01/12/2023', 'www.pinterest.com.br/ana/arte');
+        }).toThrow(Error('The value is not instance of the rigth class.'));
+    })
+
+
+    })
+
