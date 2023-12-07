@@ -19,6 +19,13 @@ class User {
         this.validateCPF(CPF);
         this.validateEmail(email);
         this.validateStrongPassword(password);
+        this.#name = name;
+        this.#profile = profile;
+        this.#email = email;
+        this.#password = password;
+        this.#dateOfBirth = dateOfBirth;
+        this.#CPF = CPF;
+        this.#description = description;
         this.#id = uuid.v4();
         this.#address = new Address(postalCode);
         this.#posts = [];
