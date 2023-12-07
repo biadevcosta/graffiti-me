@@ -1,7 +1,7 @@
 const Address = require("./Address.js");
 
 
-describe('Should validate methodes of the Address class', () => {
+describe('Should validate methods of the Address class', () => {
 
     let address1;
     let address2;
@@ -9,9 +9,7 @@ describe('Should validate methodes of the Address class', () => {
     beforeEach(async () => {
         address1 = new Address('06815150')
         await address1.createAddres();
-    })
-
-
+    });
 
     it('Should create Address success', () => {
         console.log(address1)
@@ -29,12 +27,11 @@ describe('Should validate methodes of the Address class', () => {
     });
 
 
-    
     it('should handle errors', async () => {
         address2 = new Address('12345678');
-    
+
         await expect(address2.createAddres()).rejects.toThrowError('Error while obtaining address data');
     });
 
-    })
+});
 

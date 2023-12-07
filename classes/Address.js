@@ -7,7 +7,7 @@ class Address {
     #state
     #postalCode
 
-    constructor(postalCode){
+    constructor(postalCode) {
         if (!this.isValidPostalCode(postalCode)) {
             throw new Error('Invalid postal code. Make sure the postal code has 8 digits.');
         }
@@ -15,10 +15,10 @@ class Address {
         this.#postalCode = postalCode;
     }
 
-    async createAddres(){
+    async createAddres() {
         const response = await axios.get(`https://viacep.com.br/ws/${this.#postalCode}/json/`);
 
-        if(response.data.erro) {
+        if (response.data.erro) {
             throw new Error('Error while obtaining address data');
         }
 
@@ -54,7 +54,6 @@ class Address {
     get postalCode() {
         return this.#postalCode;
     }
-    
 }
 
 module.exports = Address
