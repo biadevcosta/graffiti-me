@@ -1,6 +1,6 @@
 const User = require ('./User.js')
 
-export class Artist extends User {
+class Artist extends User {
     #graffitiStyle;
     static allArtists = [];
 
