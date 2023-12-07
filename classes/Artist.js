@@ -4,7 +4,10 @@ export class Artist extends User {
     #graffitiStyle;
     static allArtists = [];
 
-    constructor(){}
+    constructor(name, profile, email, password, dateOfBirth, CPF, description, postalCode,graffitiStyle){
+        super(name, profile, email, password, dateOfBirth, CPF, description, postalCode);
+        this.#graffitiStyle = graffitiStyle;
+    }
 
     getAllArtists() {
         this.artists;
