@@ -92,18 +92,40 @@ describe('Should validate all methods from class User.', () => {
     });
 
     it('should create post', () => {
+
+        newUser = new User(
+            'Ana Beatriz',
+            1,
+            'contato.anacosta@gmail.com',
+            'SenhaF@rte1',
+            '05/10/2002',
+            '51984064819',
+            'Artista graffiteira com 2 anos de experiência',
+            '06815435',
+            'Avenida Juruna',
+            'Embu das Artes',
+            'Parque Pirajussara',
+            'SP'
+        ); 
+
         const post = new Post(
-            user1,
+            newUser,
             'Meu primeiro mural', 
             'terminei meu primeiro mural de graffiti na avenida Paulista',
             '07/12/2023', 
             'https://i.pinimg.com/originals/23/16/ea/2316ea9397c5b91ed388988c9aa588dc.jpg'
         )
 
-        user1.createPost(post);
-
-        expect(user1.posts).toEqual('');
-
+        newUser.createPost(post)
+        expect(newUser.posts[0]).toEqual(
+            {
+                "postDate": "07/12/2023", 
+                "postDescription": "terminei meu primeiro mural de graffiti na avenida Paulista", 
+                "postId": 1, 
+                "postImage": "https://i.pinimg.com/originals/23/16/ea/2316ea9397c5b91ed388988c9aa588dc.jpg", 
+                "postTitle": "Meu primeiro mural"
+            }
+        );
     })
 
 
