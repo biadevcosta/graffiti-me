@@ -7,12 +7,16 @@ describe('Should validate methods of the Address class', () => {
     let address2;
 
     beforeEach(async () => {
-        address1 = new Address('06815150')
-        await address1.createAddres();
+        address1 = new Address(
+            '06815150', 
+            'Avenida Juruna', 
+            'Embu das Artes', 
+            'Parque Pirajussara',
+            'SP'
+        )
     });
 
     it('Should create Address success', () => {
-        console.log(address1)
         expect(address1.city).toEqual("Embu das Artes");
         expect(address1.streetAddress).toEqual('Avenida Juruna');
         expect(address1.neighborhood).toEqual('Parque Pirajussara');
@@ -25,13 +29,5 @@ describe('Should validate methods of the Address class', () => {
             new Address('0');
         }).toThrow(Error('Invalid postal code. Make sure the postal code has 8 digits.'));
     });
-
-
-    it('should handle errors', async () => {
-        address2 = new Address('12345678');
-
-        await expect(address2.createAddres()).rejects.toThrowError('Error while obtaining address data');
-    });
-
 });
 

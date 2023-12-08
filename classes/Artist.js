@@ -4,17 +4,14 @@ class Artist extends User {
     #graffitiStyle;
     static allArtists = [];
 
-    constructor(name, profile, email, password, dateOfBirth, CPF, description, postalCode,graffitiStyle){
-        super(name, profile, email, password, dateOfBirth, CPF, description, postalCode);
+    constructor(name, email, password, dateOfBirth, CPF, description, graffitiStyle, postalCode, streetAddress, city, neighborhood, state){
+        super(name, 1, email, password, dateOfBirth, CPF, description, postalCode, streetAddress, city, neighborhood, state);
         this.#graffitiStyle = graffitiStyle;
-    }
-
-    getAllArtists() {
-        this.artists;
+        Artist.allArtists.push(this);
     }
 
     get graffitiStyle() {
-        this.#graffitiStyle;
+        return this.#graffitiStyle;
     }
 
     set graffitiStyle(newGraffitiStyle) {

@@ -1,5 +1,5 @@
-const Address = require ('./Address.js')
-const uuid = require('uuid');
+const Address = require ('./Address.js');
+const Post = require('./Post.js');
 
 class User {
     #id;
@@ -10,12 +10,11 @@ class User {
     #dateOfBirth;
     #CPF;
     #description;
-    #address;
-    #posts;
-    static allPosts = [];
+    #address = {};
+    #posts = [];
     static allUsers = [];
 
-    constructor(name, profile, email, password, dateOfBirth, CPF, description, postalCode) {
+    constructor(name, profile, email, password, dateOfBirth, CPF, description, postalCode, streetAddress, city, neighborhood, state) {
         this.validateCPF(CPF);
         this.validateEmail(email);
         this.validateStrongPassword(password);
@@ -26,10 +25,36 @@ class User {
         this.#dateOfBirth = dateOfBirth;
         this.#CPF = CPF;
         this.#description = description;
-        this.#id = uuid.v4();
-        this.#address = new Address(postalCode);
-        this.#posts = [];
-        User.allUsers.push({ id: this.#id, name, profile, email, password, dateOfBirth, CPF, description });
+        this.#id = User.allUsers.length + 1;
+
+        const addressInstance = new Address(postalCode, streetAddress, city, neighborhood, state);
+
+        this.#address = {
+            postalCode: addressInstance.postalCode,
+            streetAddress: addressInstance.streetAddress,
+            city: addressInstance.city,
+            neighborhood: addressInstance.neighborhood,
+            state: addressInstance.state
+        };
+
+        User.allUsers.push({
+            id: this.#id,
+            name,
+            profile,
+            email,
+            password,
+            dateOfBirth,
+            CPF,
+            description,
+            address: { ...this.#address }
+        });
+    }
+
+    createPost(post){
+        if(!(post instanceof Post)) {
+            throw new Error('Invalid post');
+        }
+        this.#posts.push(post)
     }
 
     get id() {
@@ -95,20 +120,17 @@ class User {
     } 
 
     get address() {
-        this.#address;
+        return this.#address;
     }
 
-    set address(postalCode) {
-        this.#address = new Address(postalCode);
+    set address(address) {
+        this.#address = address;
     }
 
     get posts() {
         this.#posts;
     }
 
-    set posts(newPost) {
-        this.#posts = newPost;
-    }
 
     validateCPF(cpf){
         const regexCPF = /^\d{11}$/;
@@ -139,5 +161,6 @@ class User {
         return true;
     }
 }
+
 
 module.exports = User

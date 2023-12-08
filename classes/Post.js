@@ -1,4 +1,3 @@
-const validateInstance = require("../utils/validateInstance.js");
 const User = require("./User.js");
 
 class Post {
@@ -7,14 +6,18 @@ class Post {
     #postDescription;
     #postDate;
     #postImage;
+    static allPosts = [];
 
     constructor(user, postTitle, postDescription, postDate,postImage) {
-        validateInstance(user, User);
+        if(!(user instanceof User)) {
+            throw new Error('Invalid user');
+        }
         this.#user = user;
         this.#postTitle = postTitle;
         this.#postDescription = postDescription;
         this.#postDate = postDate;
         this.#postImage = postImage;
+        Post.allPosts.push(this);
     }
 
     get user() {
