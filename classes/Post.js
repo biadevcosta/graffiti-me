@@ -9,9 +9,9 @@ class Post {
     static allPosts = [];
 
     constructor(user, postTitle, postDescription, postDate, postImage) {
-        // if (!(this.#user instanceof User)) {
-        //     throw new Error('Invalid user. User parameter must be an instance of User class.');
-        // }
+        if (!(user instanceof User)) {
+            throw new Error('Invalid user. User parameter must be an instance of User class.');
+        }
         this.#user = user;
         this.#postTitle = postTitle;
         this.#postDescription = postDescription;

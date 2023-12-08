@@ -1,5 +1,4 @@
 const Address = require ('./Address.js');
-const Post = require('./Post.js');
 
 class User {
     #id;
@@ -51,9 +50,6 @@ class User {
     }
 
     createPost(post){
-        // if(!(post instanceof Post)) {
-        //     throw new Error('Invalid post');
-        // }
         this.#posts.push({
             postId: this.#posts.length + 1,
             postTitle: post.postTitle,

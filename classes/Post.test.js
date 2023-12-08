@@ -39,10 +39,10 @@ describe('Should validate methods of the Post class', () => {
         expect(postUser1.postImage).toEqual('image.png');
     });
 
-    // it('Should not create post, because user is invalid', () => {
-    //     expect(() => {
-    //         new Post('invalid user', 'Arte graffiti', 'Fiz essa arte em um evento de graffiti', '01/12/2023', 'www.pinterest.com.br/ana/arte');
-    //     }).toThrow(Error('The value is not instance of the right class.'));
-    // });
+    it('Should not create post, because user is invalid', () => {
+        expect(() => {
+            new Post('invalid user', 'Arte graffiti', 'Fiz essa arte em um evento de graffiti', '01/12/2023', 'www.pinterest.com.br/ana/arte');
+        }).toThrow(Error('Invalid user. User parameter must be an instance of User class.'));
+    });
 
 });
