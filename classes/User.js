@@ -51,10 +51,17 @@ class User {
     }
 
     createPost(post){
-        if(!(post instanceof Post)) {
-            throw new Error('Invalid post');
-        }
-        this.#posts.push(post)
+        // if(!(post instanceof Post)) {
+        //     throw new Error('Invalid post');
+        // }
+        this.#posts.push({
+            postId: this.#posts.length + 1,
+            postTitle: post.postTitle,
+            postDescription: post.postDescription,
+            postDate: post.postDate,
+            postImage: post.postImage,
+
+        });
     }
 
     get id() {
@@ -128,7 +135,7 @@ class User {
     }
 
     get posts() {
-        this.#posts;
+        return this.#posts;
     }
 
 
