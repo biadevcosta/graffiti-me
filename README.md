@@ -20,7 +20,8 @@ Graffiti-me é uma plataforma inovadora que proporciona aos artistas grafiteiros
 
 ## Apresentação do Projeto 
 
--  [Slides da apresentação](www.google.com)
+[Slides Projeto final - Graffiti me](https://github.com/biadevcosta/graffiti-me/files/13622321/Projeto.final.-.Graffiti.me.pdf)
+
 
 
 ## Como executar o Projeto
