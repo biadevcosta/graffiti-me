@@ -27,20 +27,40 @@ class Address {
         return this.#streetAddress;
     }
 
+    set streetAddress(newStreet) {
+        this.#streetAddress = newStreet;
+    }
+
     get city() {
         return this.#city;
+    }
+
+    set city(newCity) {
+        this.#city = newCity;
     }
 
     get neighborhood() {
         return this.#neighborhood;
     }
 
+    set neighborhood(newNeighborhood) {
+        this.#neighborhood = newNeighborhood
+    }
+
     get state() {
         return this.#state;
     }
 
+    set state(newState) {
+        this.#state = newState;
+    }
+
     get postalCode() {
         return this.#postalCode;
+    }
+
+    set postalCode(newPostalCode) {
+        this.#postalCode = newPostalCode;
     }
 }
 

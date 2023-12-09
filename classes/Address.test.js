@@ -4,7 +4,6 @@ const Address = require("./Address.js");
 describe('Should validate methods of the Address class', () => {
 
     let address1;
-    let address2;
 
     beforeEach(async () => {
         address1 = new Address(
@@ -29,5 +28,33 @@ describe('Should validate methods of the Address class', () => {
             new Address('0');
         }).toThrow(Error('Invalid postal code. Make sure the postal code has 8 digits.'));
     });
+
+    describe('Shoul validate set methods', () => {
+
+        it('should validate set new street', () => {
+            address1.streetAddress = 'Oiapoque';
+            expect(address1.streetAddress).toEqual('Oiapoque');
+        });
+
+        it('should validate set new city', () => {
+            address1.city = 'Taboão';
+            expect(address1.city).toEqual('Taboão');
+        });
+
+        it('should validate set new neighborhood', () => {
+            address1.neighborhood = 'Valo Verde';
+            expect(address1.neighborhood).toEqual('Valo Verde');
+        });
+
+        it('should validate set new state', () => {
+            address1.state = 'DF';
+            expect(address1.state).toEqual('DF');
+        });
+
+        it('should validate set new postalCode', () => {
+            address1.postalCode = '06815435';
+            expect(address1.postalCode).toEqual('06815435')
+        });
+    })
 });
 
